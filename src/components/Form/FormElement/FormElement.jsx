@@ -1,17 +1,17 @@
 import UploadForm from "../UploadForm";
 
-export default function FormElement({ text, inputType, required }) {
+export default function FormElement({ label, name, inputType, required, maxLength, minValue, maxValue }) {
     return (
         <div className="form-element">
-            {inputType !== 'image' && 
+            {inputType !== 'file_upload' && 
                 <>
-                    <label htmlFor="name">
-                        {required && <span style={{color: 'red'}}>*</span>} {text}
+                    <label htmlFor={name}>
+                        {required && <span style={{color: 'red'}}>*</span>} {label}
                     </label>
-                    <input type={inputType} required={required}/>
+                    <input name={name} type={inputType} required={required} maxLength={maxLength} min={minValue} max={maxValue}/>
                 </>
             }
-            {inputType === 'image' && <UploadForm text={text}/>}
+            {inputType === 'file_upload' && <UploadForm/>}
         </div>
     )
 }

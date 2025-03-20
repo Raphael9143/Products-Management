@@ -13,7 +13,6 @@ export default function HomeLayout() {
         <main>
             <Outlet/>
         </main>
-        <footer>footer</footer>
     </div>
     )
 }
