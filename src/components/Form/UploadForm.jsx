@@ -1,4 +1,4 @@
-export default function UploadForm() {
+export default function UploadForm({ name }) {
     const MAX_SIZE = 5*1024*1024
     const handleUpload = (event) => {
         const uploaded = event.target.files[0]
@@ -16,7 +16,7 @@ export default function UploadForm() {
             <label htmlFor="image">
                 Ảnh sản phẩm
             </label>
-            <input type="file" accept="image/*" />
+            <input type="file" name={name} accept="image/*" onChange={handleUpload}/>
         </>
     )
 }

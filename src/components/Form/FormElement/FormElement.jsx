@@ -11,7 +11,7 @@ export default function FormElement({ label, name, inputType, required, maxLengt
                     <input name={name} type={inputType} required={required} maxLength={maxLength} min={minValue} max={maxValue}/>
                 </>
             }
-            {inputType === 'file_upload' && <UploadForm/>}
+            {inputType === 'file_upload' && <UploadForm name={name}/>}
         </div>
     )
 }

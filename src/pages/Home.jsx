@@ -5,7 +5,6 @@ import CardContainer from "../components/CardContainer"
 
 export default function Home() {
     const { data } = useContext(ProductsContext)
-    console.log(data)
     return (
         <>
             {data && 
