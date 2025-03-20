@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import HomeLayout from "./layouts/HomeLayout";
 import Home from "./pages/Home";
+import ProductsDataProvider from "./components/context/ProductsContext";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -18,5 +19,9 @@ const router = createBrowserRouter(
 )
 
 export default function App() {
-  return <RouterProvider router={router}/>
+  return (
+    <ProductsDataProvider>
+      <RouterProvider router={router}/>
+    </ProductsDataProvider>
+  )
 }
