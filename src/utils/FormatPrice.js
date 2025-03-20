@@ -1,3 +1,3 @@
 export function FormatPrice(price) {
-    return price.toLocaleString('vi-VN')
+    return new Intl.NumberFormat('vi-VN').format(price);
 }

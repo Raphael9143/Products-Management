@@ -1,3 +1,5 @@
+import { useState } from "react"
+
 export default function UploadForm({ name }) {
     const MAX_SIZE = 5*1024*1024
     const handleUpload = (event) => {
@@ -6,8 +8,7 @@ export default function UploadForm({ name }) {
         if (uploaded) {
             if (uploaded.size > MAX_SIZE) {
                 alert('File size exceeds 5MB!')
-            } else {
-                // do smth
+                event.target.value = null
             }
         }
     }

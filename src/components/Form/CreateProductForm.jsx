@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import FormElement from "./FormElement/FormElement";
-import { ProductsContext } from "../context/ProductsContext";
+import { ProductsContext } from "../Context/ProductsContext";
 
 export default function CreateProductForm({ data }) {
     const { setData } = useContext(ProductsContext);
@@ -15,6 +15,8 @@ export default function CreateProductForm({ data }) {
             price: event.target.price.value,
             imageSrc: event.target.imageUrl.files[0] ? URL.createObjectURL(event.target.imageUrl.files[0]) : emptyImageSrc
         };
+
+        console.log(newProduct)
 
         setData(prevData => {
             if (!prevData) return prevData;

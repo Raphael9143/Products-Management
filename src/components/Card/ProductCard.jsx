@@ -1,8 +1,15 @@
 import { FormatPrice } from "../../utils/FormatPrice";
 
-export default function ProductCard({ name, price, imageSrc }) {
+import './ProductCard.css'
+
+export default function ProductCard({ id, name, price, imageSrc, onClick }) {
+    const handleClick = (event) => {
+        event.preventDefault()
+        onClick(id)
+
+    }
     return (
-        <div className="product-card">
+        <div className="product-card" onClick={handleClick}>
             <img src={imageSrc}/>
             <h2>{name}</h2>
             <p>{FormatPrice(price)} đ</p>
