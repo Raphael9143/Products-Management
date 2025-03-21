@@ -22,17 +22,17 @@ export default function CardContainer({data, items}) {
         setIsEdit(false)
     }
 
-    const handleEdit = () => {
-        setIsEdit(true)
-    }
+    // const handleEdit = () => {
+    //     setIsEdit(true)
+    // }
 
-    const handleChange = () => {
+    // const handleChange = () => {
 
-    }
+    // }
 
-    const handleSave = () => {
-        setIsEdit(false)
-    }
+    // const handleSave = () => {
+    //     setIsEdit(false)
+    // }
     
     return (
         <>
@@ -83,12 +83,12 @@ export default function CardContainer({data, items}) {
                             )}
                             <p>Details: {selected.details || 'lorem'}</p>
                         </div>
-                        {isEdit ? 
+                        {/* {isEdit ? 
                         (
                             <FontAwesomeIcon icon={faSave} onClick={handleSave} className="edit"/>
                         ) : (
                             <FontAwesomeIcon icon={faPenToSquare} onClick={handleEdit} className="edit"/>
-                        )}
+                        )} */}
                         <FontAwesomeIcon icon={faCircleXmark} onClick={handleClose} className="close"/>
                     </div>
                 </div>

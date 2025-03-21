@@ -109,7 +109,6 @@
 
     .popup-image, .popup-content {
         width: 100%;
-        text-align: start;
     }
 
     .popup-image > img {
