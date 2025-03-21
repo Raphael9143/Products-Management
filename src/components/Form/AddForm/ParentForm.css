@@ -72,3 +72,9 @@
 .demo-card > p {
     margin: 0 1rem;
 }
+
+.multiple-add {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

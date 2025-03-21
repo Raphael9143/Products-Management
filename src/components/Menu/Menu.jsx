@@ -8,7 +8,7 @@ import ParentForm from "../Form/AddForm/ParentForm";
 import Search from "./Search/Search";
 import Filter from "./Filter/Filter";
 
-export default function CreateProductForm({ data, setSearchData }) {
+export default function CreateProductForm({ data, setAlertMessage, setSearchData }) {
     const [isOpen, setIsOpen] = useState(false)
     const [isAdding, setIsAdding] = useState(false)
     const [isSearching, setIsSearching] = useState(false)
@@ -72,7 +72,7 @@ export default function CreateProductForm({ data, setSearchData }) {
                         </div>
                     }
                 </div>
-                {isAdding && <ParentForm data={data} action={handleClick}/>}
+                {isAdding && <ParentForm data={data} setAlertMessage={setAlertMessage} action={handleClick}/>}
                 {isSearching && <Search data={data} onSearch={handleSearch} onSearchComplete={handleClick}/>}
                 {isFiltering && <Filter/>}
             </div>              

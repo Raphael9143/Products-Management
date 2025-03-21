@@ -1,6 +1,6 @@
 import './SubForm.css'
 
-export default function UploadForm({ name, onChange }) {
+export default function UploadForm({ name, onChange, fileInputRef }) {
     const MAX_SIZE = 5*1024*1024
     const handleUpload = (event) => {
         const uploaded = event.target.files[0]
@@ -19,7 +19,7 @@ export default function UploadForm({ name, onChange }) {
             <label htmlFor="image">
                 Ảnh sản phẩm
             </label>
-            <input type="file" name={name} accept="image/*" onChange={handleUpload}/>
+            <input type="file" name={name} accept="image/*" onChange={handleUpload} ref={fileInputRef}/>
         </>
     )
 }
