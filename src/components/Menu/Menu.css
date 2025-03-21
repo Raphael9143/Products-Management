@@ -1,0 +1,90 @@
+.menu-button-cover {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    align-items: end;
+}
+
+.menu-button-cover.open {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.menu-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1rem 1rem;
+    padding: 0.4rem 0.4rem;
+}
+
+.menu-button.open {
+    background-color: white;
+    border-radius: 2rem;
+}
+
+.option-button {
+    font-size: 3rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.option-button.plus {
+    transform: rotate(0deg);
+    opacity: 1;
+    color: var(--plus-color);
+}
+
+.option-button.minus {
+    transform: rotate(180deg);
+    opacity: 0.8;
+    color: var(--minus-color);
+}
+
+.option-button.plus:hover {
+    color: var(--plus-hover);
+}
+
+.option-button.minus:hover {
+    color: var(--minus-hover);
+}
+
+.sub-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.4rem;
+    cursor: pointer;
+    gap: 1rem;
+}
+
+.menu-button.open .sub-button {
+    opacity: 1;
+    transform: translateY(0);
+    animation: slide-down 0.5s forwards;
+}
+
+@keyframes slide-down {
+    from {
+        opacity: 0;
+        transform: translateY(-2rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.sub-button > * {
+    color: var(--sub-button); 
+    
+    &:hover {
+        color: var(--sub-button-hover)
+    }
+}

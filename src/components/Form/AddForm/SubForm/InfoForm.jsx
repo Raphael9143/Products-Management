@@ -1,4 +1,4 @@
-import UploadForm from "../UploadForm";
+import UploadForm from "./UploadForm";
 
 export default function FormElement({ label, name, inputType, required, maxLength, minValue, maxValue }) {
     return (

@@ -1,3 +1,12 @@
+:root {
+  --plus-color: #a484ac;
+  --minus-color: #28A745;
+  --plus-hover: #8e5e8b;
+  --minus-hover: #1f7c39;
+  --sub-button: #e3bc9a;
+  --sub-button-hover: #d39c6b;
+}
+
 body {
   margin: 0;
 }
