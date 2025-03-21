@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import HomeLayout from "./layouts/HomeLayout";
 import Home from "./pages/Home";
-import ProductsDataProvider from "./components/Context/ProductsContext";
+import ProductsDataProvider from "./components/context/ProductsContext";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
