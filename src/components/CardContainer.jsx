@@ -5,8 +5,7 @@ import './CardContainer.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleXmark, faL, faPenToSquare, faSave } from "@fortawesome/free-solid-svg-icons";
 
-export default function CardContainer({data}) {
-    const items = data.customAttributes.productlist.items
+export default function CardContainer({data, items}) {
     const [isOpen, setIsOpen] = useState(false)
     const [selected, setSelected] = useState(null)
     const [isEdit, setIsEdit] = useState(false)

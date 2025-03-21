@@ -5,8 +5,10 @@ import { faCircleMinus, faCirclePlus, faFilter, faL, faMagnifyingGlass, faPlus, 
 
 import './Menu.css'
 import ParentForm from "../Form/AddForm/ParentForm";
+import Search from "./Search/Search";
+import Filter from "./Filter/Filter";
 
-export default function CreateProductForm({ data }) {
+export default function CreateProductForm({ data, setSearchData }) {
     const [isOpen, setIsOpen] = useState(false)
     const [isAdding, setIsAdding] = useState(false)
     const [isSearching, setIsSearching] = useState(false)
@@ -48,6 +50,15 @@ export default function CreateProductForm({ data }) {
         }
     }
 
+    useState(() => {}, [])
+
+    const handleSearch = (keyword) => {
+        const filter = data[3].customAttributes.productlist.items.filter(product => 
+            product.name.toLowerCase().startsWith(keyword.toLowerCase())
+        )
+        setSearchData(filter)
+    }
+
     return (
         <div className="menu">
             <div className={`menu-button-cover ${isOpen ? 'open' : ''}`}>
@@ -62,6 +73,8 @@ export default function CreateProductForm({ data }) {
                     }
                 </div>
                 {isAdding && <ParentForm data={data} action={handleClick}/>}
+                {isSearching && <Search data={data} onSearch={handleSearch} onSearchComplete={handleClick}/>}
+                {isFiltering && <Filter/>}
             </div>              
             
         </div>

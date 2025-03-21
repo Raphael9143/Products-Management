@@ -59,7 +59,6 @@ export default function ParentForm({ data, action }) {
 
         if (action) {
             action()
-            setTimeout()
         }
     };
     return (

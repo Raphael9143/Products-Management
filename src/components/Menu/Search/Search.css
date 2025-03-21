@@ -1,0 +1,63 @@
+.search {
+    width: 30%;
+    position: absolute;
+    top: 9rem;
+    left: 1rem;
+}
+
+.search>form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.search>form>input {
+    padding: 0.6rem 0.4rem;
+    border: none;
+    border-radius: 0.4rem;
+    width: 60%;
+}
+
+.search>form>button {
+    position: absolute;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    right: 20%;
+}
+
+.search>form>button:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 1280px) {
+    .search {
+        width: 40%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .search {
+        width: 45%;
+    }
+}
+
+@media (max-width: 900px) {
+    .search {
+        width: 50%;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .search {
+        width: 55%;
+    }
+}
+
+@media (max-width: 600px) {
+    .search {
+        width: 70%;
+    }
+}
