@@ -1,10 +1,10 @@
-import { useContext, useState } from "react";
-import FormElement from "../Form/AddForm/SubForm/InfoForm";
-import { ProductsContext } from "../Context/ProductsContext";
+import { useState } from "react";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartPlus, faCircleMinus, faCirclePlus, faFilter, faL, faMagnifyingGlass, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faCircleMinus, faCirclePlus, faFilter, faL, faMagnifyingGlass, faPlus, faXmark } from "@fortawesome/free-solid-svg-icons";
 
 import './Menu.css'
+import ParentForm from "../Form/AddForm/ParentForm";
 
 export default function CreateProductForm({ data }) {
     const [isOpen, setIsOpen] = useState(false)
@@ -12,52 +12,40 @@ export default function CreateProductForm({ data }) {
     const [isSearching, setIsSearching] = useState(false)
     const [isFiltering, setIsFiltering] = useState(false)
 
-    const { setData } = useContext(ProductsContext);
-    const formData = data[1].customAttributes.form;
-    const buttonData = data[2];
-    const emptyImageSrc = 'https://media.istockphoto.com/id/1441026821/vector/no-picture-available-placeholder-thumbnail-icon-illustration.jpg?s=612x612&w=0&k=20&c=7K9T9bguFyJyKOTvPkdoTWZYRWA3zGvx_xQI53BT0wg='
+    const handleClick = () => {
+        if (isOpen) {
+            if (isAdding) {
+                setIsAdding(false)
+            }
+            
+            if (isSearching) {
+                setIsSearching(false)
+            }
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        const newProduct = {
-            name: event.target.productName.value,
-            price: event.target.price.value,
-            imageSrc: event.target.imageUrl.files[0] ? URL.createObjectURL(event.target.imageUrl.files[0]) : emptyImageSrc
-        };
-
-        console.log(newProduct)
-
-        setData(prevData => {
-            if (!prevData) return prevData;
-
-            const updatedProductList = prevData.data[3].customAttributes.productlist.items
-                ? [newProduct, ...prevData.data[3].customAttributes.productlist.items]
-                : [newProduct];
-
-            return {
-                ...prevData,
-                data: prevData.data.map((item, index) => {
-                    if (index === 3) {
-                        return {
-                            ...item,
-                            customAttributes: {
-                                ...item.customAttributes,
-                                productlist: {
-                                    ...item.customAttributes.productlist,
-                                    items: updatedProductList
-                                }
-                            }
-                        };
-                    }
-                    return item;
-                })
-            };
-        });
-    };
-
-    const handleClick = (event) => {
-        event.preventDefault()
+            if (isFiltering) {
+                setIsFiltering(false)
+            }
+        }
         setIsOpen(!isOpen)
+    }
+
+    const handleClickAction = (key) => {
+        switch(key) {
+            case 1:
+                setIsAdding(!isAdding)
+                setIsFiltering(false)
+                setIsSearching(false)
+                break
+            case 2:
+                setIsSearching(!isSearching)
+                setIsFiltering(false)
+                setIsAdding(false)
+                break
+            default:
+                setIsFiltering(!isFiltering)
+                setIsAdding(false)
+                setIsSearching(false)
+        }
     }
 
     return (
@@ -67,30 +55,14 @@ export default function CreateProductForm({ data }) {
                     <FontAwesomeIcon icon={!isOpen ? faCirclePlus : faCircleMinus} className={`option-button ${isOpen ? 'plus': 'minus'}`} onClick={handleClick}/>
                     {isOpen && 
                         <div className='sub-button'>
-                            <FontAwesomeIcon icon={faPlus} />
-                            <FontAwesomeIcon icon={faMagnifyingGlass}/>
-                            <FontAwesomeIcon icon={faFilter}/>
+                            <FontAwesomeIcon icon={!isAdding ? faPlus : faXmark} onClick={ () => handleClickAction(1) } className={`animation ${!isAdding ? 'show' : 'off'}`}/>
+                            <FontAwesomeIcon icon={!isSearching ? faMagnifyingGlass : faXmark} onClick={() => handleClickAction(2)} className={`animation ${!isSearching ? 'show' : 'off'}`}/>
+                            <FontAwesomeIcon icon={!isFiltering ? faFilter : faXmark} onClick={ () => handleClickAction(3) } className={`animation ${!isFiltering ? 'show' : 'off'}`}/>
                         </div>
                     }
                 </div>
-            </div>
-            <div className='form-cover'>
-                <form className={data.type} onSubmit={handleSubmit}>
-                    {formData.map((element, index) => (
-                        <FormElement
-                            key={index}
-                            label={element.label}
-                            name={element.name}
-                            inputType={element.type}
-                            required={element.required}
-                            maxLength={element.maxLength}
-                            minValue={element.minValue}
-                            maxValue={element.maxValue}
-                        />
-                    ))}
-                    <button type='submit'>{buttonData.customAttributes.button.text}</button>
-                </form>
-            </div>
+                {isAdding && <ParentForm data={data} action={handleClick}/>}
+            </div>              
             
         </div>
     );

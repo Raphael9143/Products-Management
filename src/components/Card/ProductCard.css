@@ -14,7 +14,7 @@
     max-height: 100%;
     object-fit: cover;
     aspect-ratio: 1/1;
-    box-shadow: 0.2rem 0.2rem 0.4rem rgba(0, 0, 0, 0.2);
+    box-shadow: 0.2rem 0.2rem 0.4rem  var(--box-shadow);
     border-radius: 0.4rem;
 }
 

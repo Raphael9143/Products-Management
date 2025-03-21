@@ -4,13 +4,13 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    align-items: end;
+    align-items: start;
 }
 
 .menu-button-cover.open {
-    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    background-color: var(--popup-bg);
 }
 
 .menu-button {
@@ -24,8 +24,9 @@
 }
 
 .menu-button.open {
-    background-color: white;
+    background-color: var(--main-bg);
     border-radius: 2rem;
+    z-index: 10;
 }
 
 .option-button {
@@ -64,6 +65,19 @@
     gap: 1rem;
 }
 
+.animation.show {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform: rotate(0deg);
+    opacity: 1;
+}
+
+.animation.off {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform: rotate(180deg);
+    opacity: 0.8;
+    color: var(--active)
+}
+
 .menu-button.open .sub-button {
     opacity: 1;
     transform: translateY(0);
@@ -84,7 +98,11 @@
 .sub-button > * {
     color: var(--sub-button); 
     
-    &:hover {
+    &.show:hover {
         color: var(--sub-button-hover)
+    }
+
+    &.off:hover {
+        color: var(--active-hover)
     }
 }

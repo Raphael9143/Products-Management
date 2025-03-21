@@ -1,6 +1,7 @@
 import UploadForm from "./UploadForm";
+import './SubForm.css'
 
-export default function FormElement({ label, name, inputType, required, maxLength, minValue, maxValue }) {
+export default function FormElement({ label, name, inputType, required, maxLength, minValue, maxValue, onChange }) {
     return (
         <div className="form-element">
             {inputType !== 'file_upload' && 
@@ -8,10 +9,10 @@ export default function FormElement({ label, name, inputType, required, maxLengt
                     <label htmlFor={name}>
                         {required && <span style={{color: 'red'}}>*</span>} {label}
                     </label>
-                    <input name={name} type={inputType} required={required} maxLength={maxLength} min={minValue} max={maxValue}/>
+                    <input name={name} type={inputType} required={required} maxLength={maxLength} min={minValue} max={maxValue} onChange={onChange}/>
                 </>
             }
-            {inputType === 'file_upload' && <UploadForm name={name}/>}
+            {inputType === 'file_upload' && <UploadForm name={name} onChange={onChange}/>}
         </div>
     )
 }

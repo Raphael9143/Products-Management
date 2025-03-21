@@ -1,6 +1,6 @@
-import { useState } from "react"
+import './SubForm.css'
 
-export default function UploadForm({ name }) {
+export default function UploadForm({ name, onChange }) {
     const MAX_SIZE = 5*1024*1024
     const handleUpload = (event) => {
         const uploaded = event.target.files[0]
@@ -9,6 +9,8 @@ export default function UploadForm({ name }) {
             if (uploaded.size > MAX_SIZE) {
                 alert('File size exceeds 5MB!')
                 event.target.value = null
+            } else {
+                onChange(event)
             }
         }
     }

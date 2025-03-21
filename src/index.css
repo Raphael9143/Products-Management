@@ -5,6 +5,15 @@
   --minus-hover: #1f7c39;
   --sub-button: #e3bc9a;
   --sub-button-hover: #d39c6b;
+  --main-bg: white;
+  --popup-bg: rgba(0, 0, 0, .5);
+  --box-shadow: rgba(0, 0, 0, .2);
+  --close-btn: red;
+  --save-btn: blue;
+  --submit-btn: #2ecc71;
+  --submit-btn-hover: #27ae60;
+  --active: #ff2400;
+  --active-hover: #d91e00;
 }
 
 body {
