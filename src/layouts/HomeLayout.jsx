@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import { Outlet } from 'react-router-dom'
-import { ProductsContext } from '../components/Context/ProductsContext'
+import { ProductsContext } from '../components/context/ProductsContext'
 import Header from '../components/Header/Header'
 
 export default function HomeLayout() {
