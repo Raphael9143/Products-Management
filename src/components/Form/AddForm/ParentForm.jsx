@@ -101,7 +101,7 @@ export default function ParentForm({ data, setAlertMessage, action }) {
                                 minValue={element.minValue}
                                 maxValue={element.maxValue}
                                 onChange={handleChange}
-                                value={product[element.name] || element.name == 'imageUrl' ? null : ''}
+                                value={product[element.name] || ''}
                                 fileInputRef={element.type === 'file_upload' ? fileInputRef : null}
                             />
                         ))}

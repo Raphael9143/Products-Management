@@ -8,7 +8,7 @@ import ParentForm from "../Form/AddForm/ParentForm";
 import Search from "./Search/Search";
 import Filter from "./Filter/Filter";
 
-export default function CreateProductForm({ data, setAlertMessage, setSearchData }) {
+export default function CreateProductForm({ data, setAlertMessage, setApplyData }) {
     const [isOpen, setIsOpen] = useState(false)
     const [isAdding, setIsAdding] = useState(false)
     const [isSearching, setIsSearching] = useState(false)
@@ -56,7 +56,47 @@ export default function CreateProductForm({ data, setAlertMessage, setSearchData
         const filter = data[3].customAttributes.productlist.items.filter(product => 
             product.name.toLowerCase().startsWith(keyword.toLowerCase())
         )
-        setSearchData(filter)
+        setApplyData(filter)
+    }
+
+    const handleFilter = (filter) => {
+        const filtered = applyFilter(filter)
+        setApplyData(filtered)
+
+    }
+
+    const applyFilter = (filter) => {
+        let filtered = data[3].customAttributes.productlist.items
+        filtered = filtered.filter(item => {
+            const price = item.price
+            switch (filter.priceRange) {
+                case '<=100':
+                    return price >= 10000 && price <= 100000
+                case '<=300':
+                    return price >= 100000 && price <= 300000
+                case '<=500':
+                    return price >= 300000 && price <= 500000
+                case '<=1000':
+                    return price >= 500000 && price <= 1000000
+                case '<=5000':
+                    return price >= 1000000 && price <= 5000000
+                case '>5000':
+                    return price >= 5000000
+                default: 
+                    return price >= 10000
+            }
+        })
+
+        switch (filter.sortOrder) {
+            case 'asc':
+                filtered = filtered.sort((a, b) => a.price - b.price)
+                break
+            case 'desc':
+                filtered = filtered.sort((a, b) => b.price - a.price)
+                break
+        }
+
+        return filtered
     }
 
     return (
@@ -74,7 +114,7 @@ export default function CreateProductForm({ data, setAlertMessage, setSearchData
                 </div>
                 {isAdding && <ParentForm data={data} setAlertMessage={setAlertMessage} action={handleClick}/>}
                 {isSearching && <Search data={data} onSearch={handleSearch} onSearchComplete={handleClick}/>}
-                {isFiltering && <Filter/>}
+                {isFiltering && <Filter onFilter={handleFilter} onFilterComplete={handleClick}/>}
             </div>              
             
         </div>

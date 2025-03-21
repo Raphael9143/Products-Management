@@ -1,0 +1,75 @@
+.filter {
+    background-color: var(--main-bg);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: absolute;
+    top: 12rem;
+    left: 6.2rem;
+    width: 15%;
+    border-radius: 0.4rem;
+    padding: 0.6rem 0.4rem;
+}
+
+select {
+    border: 1px solid;
+    padding: 0.4rem 0.6rem;
+    border-radius: 0.3rem;
+    margin-top: 0.2rem;
+}
+
+.price-sort, .price-range {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.filter-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.filter-button > *{
+    border: none;
+    border-radius: 0.4rem;
+    padding: 0.4rem 0.4rem;
+    cursor: pointer;
+    background-color: var(--submit-btn);
+
+    &:hover {
+        background-color: var(--submit-btn-hover);
+    }
+}
+
+@media (max-width: 1280px) {
+    .filter {
+        width: 20%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .filter {
+        width: 25%;
+    }
+}
+
+@media (max-width: 900px) {
+    .filter {
+        width: 30%;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .filter {
+        width: 35%;
+    }
+}
+
+@media (max-width: 600px) {
+    .filter {
+        width: 40%;
+    }
+}
