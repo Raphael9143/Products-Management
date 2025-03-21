@@ -1,5 +1,5 @@
 import { useContext, useState } from "react"
-import { ProductsContext } from "../components/Context/ProductsContext"
+import { ProductsContext } from "../components/context/ProductsContext"
 import CreateProductForm from "../components/Menu/Menu"
 import CardContainer from "../components/CardContainer"
 

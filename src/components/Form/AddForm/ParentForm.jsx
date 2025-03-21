@@ -1,6 +1,6 @@
 import { useContext, useRef, useState } from "react";
 import FormElement from "./SubForm/InfoForm";
-import { ProductsContext } from "../../Context/ProductsContext";
+import { ProductsContext } from "../../context/ProductsContext";
 
 import './ParentForm.css'
 import ProductCard from "../../Card/ProductCard";
