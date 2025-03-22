@@ -3,7 +3,7 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleMinus, faCirclePlus, faFilter, faL, faMagnifyingGlass, faPlus, faXmark } from "@fortawesome/free-solid-svg-icons";
 
-import './Menu.css'
+import '../../assets/styles/Menu.css'
 import ParentForm from "../Form/AddForm/ParentForm";
 import Search from "./Search/Search";
 import Filter from "./Filter/Filter";

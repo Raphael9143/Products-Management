@@ -1,4 +1,4 @@
-import './SubForm.css'
+import '../../../../assets/styles/SubForm.css'
 
 export default function UploadForm({ name, onChange, fileInputRef }) {
     const MAX_SIZE = 5*1024*1024

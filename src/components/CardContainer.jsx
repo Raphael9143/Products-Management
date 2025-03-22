@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ProductCard from "./Card/ProductCard";
 import { FormatPrice } from "../utils/FormatPrice";
-import './CardContainer.css'
+import '../assets/styles/CardContainer.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleXmark, faL, faPenToSquare, faSave } from "@fortawesome/free-solid-svg-icons";
 

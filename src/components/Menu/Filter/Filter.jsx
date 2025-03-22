@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import './Filter.css'
+import '../../../assets/styles/Filter.css'
 
 export default function Filter({onFilter, onFilterComplete}) {
     const [priceRange, setPriceRange] = useState('all')

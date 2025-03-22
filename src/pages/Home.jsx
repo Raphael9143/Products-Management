@@ -3,7 +3,7 @@ import { ProductsContext } from "../components/context/ProductsContext"
 import CreateProductForm from "../components/Menu/Menu"
 import CardContainer from "../components/CardContainer"
 
-import './Home.css'
+import '../assets/styles/Home.css'
 import Alert from "../components/Alert/Alert"
 
 export default function Home() {

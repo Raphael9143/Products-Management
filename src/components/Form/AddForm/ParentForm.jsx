@@ -2,7 +2,7 @@ import { useContext, useRef, useState } from "react";
 import FormElement from "./SubForm/InfoForm";
 import { ProductsContext } from "../../context/ProductsContext";
 
-import './ParentForm.css'
+import '../../../assets/styles/ParentForm.css'
 import ProductCard from "../../Card/ProductCard";
 import { Switch } from "@mui/material";
 import { FormatPrice } from "../../../utils/FormatPrice";

@@ -1,5 +1,5 @@
 import UploadForm from "./UploadForm";
-import './SubForm.css'
+import '../../../../assets/styles/SubForm.css'
 
 export default function FormElement({ label, name, inputType, required, maxLength, minValue, maxValue, onChange, value, fileInputRef }) {
     return (

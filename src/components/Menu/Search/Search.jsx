@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import './Search.css'
+import '../../../assets/styles/Search.css'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 export default function Search({onSearch, onSearchComplete}) {
     const [keyword, setKeyword] = useState('')
